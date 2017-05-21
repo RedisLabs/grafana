@@ -1,0 +1,14 @@
+FROM golang:1.8.1
+
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y nodejs bzip2 libfontconfig ruby-dev build-essential rubygems
+RUN apt-get update && apt-get install -y yarn 
+RUN npm install --global grunt-cli
+RUN npm install --global node-sass
+RUN gem install fpm
+
+WORKDIR /go/src/github.com/grafana/grafana
+
+CMD make deps && go run build.go package latest
