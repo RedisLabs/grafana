@@ -1,6 +1,7 @@
 .graph-canvas-wrapper {
   position: relative;
   cursor: crosshair;
+  user-select: none;
 }
 
 .histogram-chart {
@@ -178,6 +179,7 @@
     vertical-align: top;
     position: relative;
     left: 4px;
+    user-select: text !important;
   }
 
   .graph-legend {

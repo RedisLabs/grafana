@@ -22,6 +22,7 @@ div.flot-text {
 .panel {
   display: inline-block;
   float: left;
+  user-select: auto;
 
   &--solo {
     .resize-panel-handle {
@@ -58,6 +59,7 @@ div.flot-text {
   padding-top: 4px;
   cursor: pointer;
   word-wrap: break-word;
+  user-select: none;
 }
 
 .panel-title {
